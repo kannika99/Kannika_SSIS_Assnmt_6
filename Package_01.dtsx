@@ -1,0 +1,667 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/3/2023 1:52:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="IN-CDG-WL-52348"
+  DTS:CreatorName="CORP\manj373091"
+  DTS:DTSID="{8229D931-BDE7-4A72-9E47-F598D0B069D0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="3081"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{D0AE5029-D8C6-42DC-8188-E75EA23E3F57}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[img_File1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{17AF7E13-91B4-4047-8621-435105054AB2}"
+      DTS:ObjectName="img_File1">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::A2_IMG_PATH]+ @[User::imgFileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3081"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\manj373091\OneDrive - Endeavor\Documents\Sept 22\Endeavor Trainings\SSIS\Assignment 6\SOURCE FILES\Q1\">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Model_ID"
+              DTS:DTSID="{B3F6F26E-218A-4D59-9DBE-420B461DBDC2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Model_Name"
+              DTS:DTSID="{F55EA75A-71FA-4EF9-A12D-CC86203719B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Height"
+              DTS:DTSID="{BF0CB94A-64A1-46E4-9D10-ED5A4B16286A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{8F2D76E8-1506-42D6-826D-398563EB6CB7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{25E480D1-FA13-465B-ADF1-EAFFBE73CC65}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="A2_IMG_PATH">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\manj373091\OneDrive - Endeavor\Documents\Sept 22\Endeavor Trainings\SSIS\Assignment 6\SOURCE FILES\Q1\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{49EEEE42-6BEF-49CD-93E8-D910E2D9CF22}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="imgFileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CREATE MODELS TABLE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{cdd15dbb-e0d0-47c7-9b5c-2cc38935e190}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CREATE MODELS TABLE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1953D51A-2F90-4C17-B190-41DCCF2DC030}"
+          SQLTask:SqlStatementSource="DROP TABLE IF EXISTS A2_IMG_Models;&#xA;CREATE TABLE A2_IMG_Models&#xA;(&#xA; Model_ID INT NOT NULL,&#xA; Model_Name VARCHAR(30),&#xA; Height INT,&#xA; Gender VARCHAR(5)&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LOAD DATA FROM MULTIPLE FILES"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{933b9878-9284-4530-8a15-b699b42490b8}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LOAD DATA FROM MULTIPLE FILES">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{c57127ab-e879-4996-9264-2d568d5bcff9}"
+        DTS:ObjectName="{4662E17A-E457-4672-8BDD-976E8D5ABCC0}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::A2_IMG_PATH]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\manj373091\OneDrive - Endeavor\Documents\Sept 22\Endeavor Trainings\SSIS\Assignment 6\SOURCE FILES\Q1\" />
+            <FEFEProperty
+              FileSpec="IMG*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{bf0023dd-e11e-4c23-8cd4-0c84c495029e}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="A2_IMG_Models TABLE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[A2_IMG_Models]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1953D51A-2F90-4C17-B190-41DCCF2DC030}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[US-LAD-WDBSV-D2.EIPStaging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].Columns[Model_ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Model_ID"
+                          externalMetadataColumnId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].ExternalColumns[Model_ID]"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Model_ID]" />
+                        <inputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].Columns[Model_Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Model_Name"
+                          externalMetadataColumnId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].ExternalColumns[Model_Name]"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Model_Name]" />
+                        <inputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].Columns[Height]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Height"
+                          externalMetadataColumnId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].ExternalColumns[Height]"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Height]" />
+                        <inputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].Columns[Gender]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Gender"
+                          externalMetadataColumnId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Gender]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].ExternalColumns[Model_ID]"
+                          dataType="i4"
+                          name="Model_ID" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].ExternalColumns[Model_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Model_Name" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].ExternalColumns[Height]"
+                          dataType="i4"
+                          name="Height" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Gender" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="3081"
+                  name="IMG MODELS FLAT FILES"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[img_File1]"
+                      connectionManagerRefId="Package.ConnectionManagers[img_File1]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Model_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].ExternalColumns[Model_ID]"
+                          length="50"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Model_ID]"
+                          name="Model_ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Model_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].ExternalColumns[Model_Name]"
+                          length="50"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Model_Name]"
+                          name="Model_Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Height]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].ExternalColumns[Height]"
+                          length="50"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Height]"
+                          name="Height"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Gender]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                          length="50"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].Columns[Gender]"
+                          name="Gender"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].ExternalColumns[Model_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Model_ID" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].ExternalColumns[Model_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Model_Name" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].ExternalColumns[Height]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Height" />
+                        <externalMetadataColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Gender" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task.Paths[Flat File Source Output]"
+                  endId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{56db57c5-c67f-4b17-a7fc-569f7af02679}"
+          DTS:ObjectName="{8D1FC773-6B5A-4E05-BC08-0AC66DF56C93}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::imgFileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{cbd9abd0-cdef-4f17-9af7-29ad3d9dcc9e}"
+      DTS:From="Package\CREATE MODELS TABLE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\LOAD DATA FROM MULTIPLE FILES" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="193.666666666667,42"
+          Id="Package\CREATE MODELS TABLE"
+          TopLeft="233.02603856187,168.042328042328" />
+        <NodeLayout
+          Size="151.333333333334,42"
+          Id="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task"
+          TopLeft="51.8003401305888,38.0277777777777" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="255.666666666667,134.333333333334"
+          Size="255.666666666667,177.333333333334"
+          Id="Package\LOAD DATA FROM MULTIPLE FILES"
+          TopLeft="199.796872887062,256.101851851851" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="328.744789057799,210.042328042328">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,46.0595238095232"
+              Start="0,0"
+              End="0,38.5595238095232">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5595238095232" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load multiple files with different file names having first three character of file name with IMG as suffix"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="564.333333333334,40"
+          Id="63fada80-64c9-4245-ade6-b4bb1624f168"
+          TopLeft="55.1388889613252,95.7142857142857" />
+        <AnnotationLayout
+          Text="ASSIGNMENT 6"
+          ParentId="Package"
+          Size="135.333333333334,37.3333333333334"
+          Id="e94dfe66-881d-4501-81e0-4bc615d06a8d"
+          TopLeft="264.186503999822,0.952380952380949">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11"
+              Color="#FFFFFFFF"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="Q1. BREAK POINTS"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="129,60"
+          Id="62c87042-04a5-4172-aea0-b0813f2c92f1"
+          TopLeft="58.9285705504673,61.9047619047619" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188.333333333334,42"
+          Id="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE"
+          TopLeft="121,142.333333333333" />
+        <NodeLayout
+          Size="198.666666666667,42"
+          Id="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\IMG MODELS FLAT FILES"
+          TopLeft="112.5,56" />
+        <EdgeLayout
+          Id="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="213.5,98">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.3333333333329"
+              Start="0,0"
+              End="0,36.8333333333329">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.8333333333329" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Flat file source is dynamic"
+          ParentId="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task"
+          FontInfo="{x:Null}"
+          Size="164.333333333334,40"
+          Id="a3ad17d6-6235-4fc0-b89a-67569ae30a41"
+          TopLeft="128.333333333333,6.66666666666667" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD DATA FROM MULTIPLE FILES\Data Flow Task\A2_IMG_Models TABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
