@@ -14,8 +14,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:SaveCheckpoints="True"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{9B3CA783-76B1-468F-9764-1F27C1202FFF}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{05C5D883-0770-444B-B6D1-6E506520F1DE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -501,7 +501,7 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
+      DTS:refId="Package\LOWER case Email"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{E25C53E8-01AC-47CE-84DA-AA0BBCDC36D0}"
@@ -509,7 +509,7 @@
       DTS:FailPackageOnFailure="True"
       DTS:FailParentOnFailure="True"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
+      DTS:ObjectName="LOWER case Email"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -1145,12 +1145,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       DTS:From="Package\DFT- Load Table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Execute SQL Task" />
+      DTS:To="Package\LOWER case Email" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
       DTS:DTSID="{3F97C55C-685B-4DEB-A30C-0DCFCE2CF427}"
-      DTS:From="Package\Execute SQL Task"
+      DTS:From="Package\LOWER case Email"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Script Task" />
@@ -1187,12 +1187,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Id="Package\DFT- Load Table"
           TopLeft="259.920631047516,248.994708994709" />
         <NodeLayout
-          Size="163.333333333334,42"
-          Id="Package\Execute SQL Task"
+          Size="167,42"
+          Id="Package\LOWER case Email"
           TopLeft="255.059520008841,338.624338624339" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="337.573408861512,290.994708994709">
+          TopLeft="338.490075528178,290.994708994709">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -1244,7 +1244,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="274.107138772628,422.380952380952" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="338.166662724068,380.624338624339">
+          TopLeft="339.083329390734,380.624338624339">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
